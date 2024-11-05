@@ -3,6 +3,7 @@ package com.bank.fake_user_app.controller;
 import com.bank.fake_user_app.service.FakeUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,11 @@ public class FakeUserController {
     @GetMapping("/no-db/random")
     public ResponseEntity<String> getRandomName() {
         return ResponseEntity.ok(fakeUserService.getRandomName());
+    }
+
+    @GetMapping("/with-db/random")
+    public ResponseEntity<String> getNameDromDB() {
+        return ResponseEntity.ok(fakeUserService.getNameFromDB());
     }
 
 }
